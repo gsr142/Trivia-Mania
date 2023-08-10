@@ -1,6 +1,5 @@
 const User = require('./User');
 const Player = require('./Player');
-const Team = require('./Team');
 const Mascot = require('./Mascot');
 
 User.hasMany(Player, {
@@ -13,25 +12,21 @@ Player.belongsToMany(User, {
     onDelete: 'CASCADE'
 })
 
-Team.hasMany(Player, {
-    foreignKey: 'team_id',
+User.hasOne(Mascot, {
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 })
 
-Player.belongsTo(Team, {
-    foreignKey: 'team_id',
+Mascot.hasMany(Player, {
+    foreignKey: 'mascot_id',
     onDelete: 'CASCADE'
 })
 
-Team.hasOne(Mascot, {
-    foreignKey: 'team_id',
+Player.belongsTo(Mascot, {
+    foreignKey: 'mascot_id',
     onDelete: 'CASCADE'
 })
 
-Mascot.belongsTo(Team, {
-    foreignKey: 'team_id',
-    onDelete: 'CASCADE'
-})
 
 
 
