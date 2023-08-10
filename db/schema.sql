@@ -1,0 +1,2 @@
+DROP fantasy_db
+CREATE fantasy_db
