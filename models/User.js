@@ -18,11 +18,17 @@ User.init(
         email: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                isEmail: true
+            },
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
-        }
+            validate: {
+                len: [6],
+            },
+        },
     },
     {
         sequelize,

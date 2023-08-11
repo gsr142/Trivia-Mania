@@ -15,13 +15,7 @@ Player.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        team_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'player',
-                key: 'id',
-            },
-        },
+    
         user_id: {
             type: DataTypes.INTEGER,
             references: {
