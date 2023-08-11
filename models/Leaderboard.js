@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connections');
 
-class User extends Model {};
+class Leaderboard extends Model {};
 
-User.init(
+Leaderboard.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -15,16 +15,13 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [6],
-            },
-        },
-        highscore: {
+        user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true,
+            references: {
+                model: 'user',
+                key: 'id',
+            }
         },
     },
     {
@@ -36,4 +33,4 @@ User.init(
     }
 );
 
-module.exports = User;
+module.exports = Leaderboard;

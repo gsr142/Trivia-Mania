@@ -1,25 +1,34 @@
 const User = require('./User');
-const Player = require('./Player');
-const Mascot = require('./Mascot');
+const Category = require('./Category');
+const Question = require('./Question');
+const Leaderboard = require('./Leaderboard');
 
-User.hasMany(Player, {
-    foreignKey: 'user_id',
+Category.hasMany(Question, {
+    foreignKey: 'category_id',
+    // onDelete: 'CASCADE',
+})
+
+Question.belongsTo(Category, {
+    foreignKey: 'category_id',
     onDelete: 'CASCADE',
-} )
-
-Player.belongsToMany(User, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
 })
 
-User.hasMany(Mascot, {
+Leaderboard.hasMany(User, {
     foreignKey: 'user_id',
-    onDelete: 'CASCADE'
 })
 
-Mascot.belongsTo(User, {
+User.belongsToMany(Leaderboard, {
     foreignKey: 'user_id',
-    onDelete: 'CASCADE'
 })
+
+Leaderboard.hasMany(Category, {
+    foreignKey: 'category_id',
+})
+
+Category.belongsTo(Leaderboard, {
+    foreignKey: 'category_id',
+})
+
+module.exports = { User, Category, Question, Leaderboard}; 
 
 
