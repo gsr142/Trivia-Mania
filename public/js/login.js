@@ -1,9 +1,9 @@
-document.querySelector('./login-button').addEventListener('click', loginFunction);
+document.querySelector('.login-form').addEventListener('submit', loginFunction);
 
 const loginFunction = async (e) => {
     e.preventDefault();
 
-    const email = document.querySelector('.login-email').value.trim();
+    const email = document.querySelector('.login-username').value.trim();
     const password = document.querySelector('.login-password').value.trim();
 
     if (email && password) {
@@ -15,9 +15,10 @@ const loginFunction = async (e) => {
         });
 
         if (response.ok){
-            document.location.replace('/dashboard')
+            document.location.replace('/homepage')
         } else {
-            //refresh the page so the user can try logging in or signing up again. 
+            document.location.replace('/landingpage');
+        
         }
     }
 }
