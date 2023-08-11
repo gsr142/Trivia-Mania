@@ -1,6 +1,5 @@
 const User = require('./User');
 const Player = require('./Player');
-const Team = require('./Team');
 const Mascot = require('./Mascot');
 
 User.hasMany(Player, {
