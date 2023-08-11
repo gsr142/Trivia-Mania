@@ -1,2 +1,2 @@
-DROP fantasy_db
-CREATE fantasy_db
+DROP trivia_db
+CREATE trivia_db
