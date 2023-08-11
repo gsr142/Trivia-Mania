@@ -13,25 +13,14 @@ Player.belongsToMany(User, {
     onDelete: 'CASCADE'
 })
 
-Team.hasMany(Player, {
-    foreignKey: 'team_id',
+User.hasMany(Mascot, {
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 })
 
-Player.belongsTo(Team, {
-    foreignKey: 'team_id',
+Mascot.belongsTo(User, {
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 })
-
-Team.hasOne(Mascot, {
-    foreignKey: 'team_id',
-    onDelete: 'CASCADE'
-})
-
-Mascot.belongsTo(Team, {
-    foreignKey: 'team_id',
-    onDelete: 'CASCADE'
-})
-
 
 
