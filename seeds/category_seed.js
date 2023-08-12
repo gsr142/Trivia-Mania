@@ -2,13 +2,13 @@ const { Category } = require('../models'); // Make sure to import your Category 
 // not sure on seed
 const categoryData = [
   {
-    name: 'Sport',
+    name: 'Sports',
   },
   {
     name: 'Video Games',
   },
   {
-    name: 'Chuck Norris',
+    name: 'History',
   },
  
 ];

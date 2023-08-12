@@ -24,7 +24,7 @@ User.init(
         },
         highscore: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         },
     },
     {
