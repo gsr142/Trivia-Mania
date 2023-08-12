@@ -1,2 +1,2 @@
-DROP trivia_db
-CREATE trivia_db
+DROP DATABSE IF EXISTS trivia_db;
+CREATE DATABASE trivia_db;
