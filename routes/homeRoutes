@@ -1,7 +1,0 @@
-const router = require('express').Router();
-const { Category, Questions, User } = require('../modles');
-
-router.get('/');
-
-
-module.exports = router;
