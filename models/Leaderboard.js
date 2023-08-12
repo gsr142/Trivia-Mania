@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connections');
+const sequelize = require('../config/connection');
 
 class Leaderboard extends Model {};
 
@@ -29,7 +29,7 @@ Leaderboard.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user',
+        modelName: 'leaderboard',
     }
 );
 

@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connections');
+const sequelize = require('../config/connection');
 
 class User extends Model {};
 
@@ -24,7 +24,7 @@ User.init(
         },
         highscore: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         },
     },
     {
