@@ -1,3 +1,16 @@
 <body>
     <h1>Hello!</h1>
+    <section class="game-board">
+        <div class="question-panel">{{#each questions as |question|}}</div>
+        <div class="answers">
+            <ul class="answers">
+                <a class="answer-a"><li>{{question.answers.a}}</li></a>
+                <a class="answer-b"><li>{{question.answers.b}}</li></a>
+                <a class="answer-c"><li>{{question.answers.c}}</li></a>
+                <a class="answer-d"><li>{{question.answers.d}}</li></a>
+            </ul>
+        </div>
+    
+    <script src='../public/js/game.js'></script>
+    </section>
 </body>
