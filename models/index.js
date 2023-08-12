@@ -5,7 +5,7 @@ const Leaderboard = require('./Leaderboard');
 
 Category.hasMany(Question, {
     foreignKey: 'category_id',
-    // onDelete: 'CASCADE',
+    onDelete: 'CASCADE',
 })
 
 Question.belongsTo(Category, {
@@ -17,7 +17,7 @@ Leaderboard.hasMany(User, {
     foreignKey: 'user_id',
 })
 
-User.belongsToMany(Leaderboard, {
+User.belongsTo(Leaderboard, {
     foreignKey: 'user_id',
 })
 

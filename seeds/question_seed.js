@@ -63,7 +63,5 @@ const questionData = [
     }
 ];
 
-function seedQuestions(){
-    return Question.bulkCreate(questionData);
-}
-module.exports = seedQuestions;
+
+module.exports = questionData;
