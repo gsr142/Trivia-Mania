@@ -5,15 +5,15 @@ document.querySelector('.login-form').addEventListener('submit', loginButtonFunc
 const loginButtonFunction = async (e) => {
     e.preventDefault();
 
-    const email = document.querySelector('.login-username').value.trim();
+    const name = document.querySelector('.login-username').value.trim();
     const password = document.querySelector('.login-password').value.trim();
 
-    if (email && password) {
+    if (name && password) {
         
         const response = await fetch ('/api/users/login', {
             method: 'POST',
-            body: JSON.stringify({email: email, password: password}),
-            headers: { 'Content-Type': 'application/json'}
+            body: JSON.stringify({name: name, password: password}),
+            // headers: { 'Content-Type': 'application/json'}
         });
 
         if (response.ok){
@@ -37,13 +37,13 @@ const createAccountButtonFunction = async () => {
     
     const response = await fetch('/api/user', {
         method: 'POST',
-        body: JSON.stringify({username: username, password: password}),
+        body: JSON.stringify({name: username, password: password}),
         headers: { 'Content-Type': 'application/json'}
     })
 
     if (response.ok) {
-        document.location.replace('/homepage');
+        document.location.replace('/Triviapage');
     } else {
-        document.location.replace('/landingpage');
+        document.location.replace('/homepage');
     }
 }
