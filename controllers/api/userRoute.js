@@ -1,62 +1,71 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
     try {
-      const userData = await User.create(req.body);
-  
-      req.session.save(() => {
-        req.session.user_id = userData.id;
-        req.session.logged_in = true;
-  
-        res.status(200).json(userData);
-      });
+        const newUser = await User.create({
+            name: req.body.username,
+            password: req.body.password,
+        });
+        
+        req.session.save(() => {
+            req.session.user_id = newUser.id;
+            req.session.username = newUser.name;
+            req.session.logged_in = true;
+        });
+
+        console.log('New user created:', newUser);
+
+        res.status(200).json(newUser);
     } catch (err) {
-        res.status(400).json(err);
+        console.error('Error creating user:', err);
+        res.status(400).json({ error: "User creation failed." });
     }
 });
 
 router.post('/login', async (req, res) => {
     try {
-      const userData = await User.findOne({ where: { name: req.body.name } });
-  
-      if (!userData) {
-        res
-          .status(400)
-          .json({ message: 'Incorrect username or password, please try again' });
-        return;
-      }
-  
-      const validPassword = await userData.checkPassword(req.body.password);
-  
-      if (!validPassword) {
-        res
-          .status(400)
-          .json({ message: 'Incorrect username or password, please try again' });
-        return;
-      }
-  
-      req.session.save(() => {
-        req.session.user_id = userData.id;
-        req.session.logged_in = true;
-        
-        res.json({ user: userData, message: 'You are now logged in!' });
-      });
-  
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
+        const userData = await User.findOne({ where: { name: req.body.name } });
 
-router.post('/logout', (req, res) => {
-    if (req.session.logged_in) {
-        req.session.destroy(() => {
-        res.status(204).end();
-      });
-    } else {
-        res.status(404).end();
+        if (!userData) {
+            console.log('Incorrect username or password:', req.body.name);
+            res.status(400).json({ message: 'Incorrect username or password, please try again' });
+            return;
+        }
+
+        const validPassword = await userData.checkPassword(req.body.password);
+
+        if (!validPassword) {
+            console.log('Incorrect password for user:', req.body.name);
+            res.status(400).json({ message: 'Incorrect username or password, please try again' });
+            return;
+        }
+
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+        });
+
+        console.log('User logged in:', userData);
+
+        res.json({ user: userData, message: 'Ready to test your trivia knowledge?!' });
+
+    } catch (err) {
+        console.error('Error during login:', err);
+        res.status(400).json(err);
     }
-  });
+});
+
+
+// router.post('/logout', (req, res) => {
+//     if (req.session.logged_in) {
+//         req.session.destroy(() => {
+//         res.status(204).end();
+//       });
+//     } else {
+//         res.status(404).end();
+//     }
+//   });
 
 
 module.exports = router;
