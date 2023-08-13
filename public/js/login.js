@@ -10,7 +10,7 @@ loginForm.addEventListener('submit', async (event) => {
 
   try {
     // Send a POST request to the login route
-    const response = await fetch('/login', {
+    const response = await fetch('api/user/login', {
       method: 'POST',
       body: JSON.stringify({ name: username, password: password }),
       headers: {
