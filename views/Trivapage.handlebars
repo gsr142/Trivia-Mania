@@ -1,16 +1,20 @@
 <body>
     <h1>Hello!</h1>
     <section class="game-board">
-        <div class="question-panel">{{#each questions as |question|}}</div>
-        <div class="answers">
-            <ul class="answers">
-                <a class="answer-a"><li>{{question.answers.a}}</li></a>
-                <a class="answer-b"><li>{{question.answers.b}}</li></a>
-                <a class="answer-c"><li>{{question.answers.c}}</li></a>
-                <a class="answer-d"><li>{{question.answers.d}}</li></a>
-            </ul>
+        <div class="question-panel">
+            {{>question-details}}
         </div>
     
     <script src='../public/js/game.js'></script>
     </section>
 </body>
+
+{{!-- this will have received an array of questions from api/question via render --}}
+{{!-- the fetch request will be made upon click of the start/play game button}}
+    {{!-- within the GET: api/questions request, questions of a specific category and difficulty will be selected for
+            -the parameters will be provided by the fetch request, and be used with the .findAll
+            method within the route.}}
+
+{{!-- ONCE THE QUESTIONS ARRAY HAS BEEN RECEIVED! --}}
+    {{!-- How are we going to display them one at a time, one after another? --}}
+       

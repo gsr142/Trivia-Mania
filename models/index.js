@@ -3,6 +3,7 @@ const Category = require('./Category');
 const Question = require('./Question');
 const Leaderboard = require('./Leaderboard');
 
+
 Category.hasMany(Question, {
     foreignKey: 'category_id',
     onDelete: 'CASCADE',
