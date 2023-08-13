@@ -1,11 +1,11 @@
-function withAuth (request, result, next) {
+const withAuth = (req, result, next) => {
     
-    if (!request.session.logged_in) {
+    if (!req.session.logged_in) {
       result.redirect('/login');
     } else {
       next();
     }
   };
   
-  module.exports = withAuth;
+  module.exports = { withAuth };
   
