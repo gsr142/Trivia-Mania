@@ -2,19 +2,15 @@
     <h1>Hello!</h1>
     <section class="game-board">
         <div class="question-panel">
-            {{>question-details}}
+            {{> question-details}}
         </div>
     
     <script src='../public/js/game.js'></script>
     </section>
 </body>
 
-{{!-- this will have received an array of questions from api/question via render --}}
-{{!-- the fetch request will be made upon click of the start/play game button}}
-    {{!-- within the GET: api/questions request, questions of a specific category and difficulty will be selected for
-            -the parameters will be provided by the fetch request, and be used with the .findAll
-            method within the route.}}
-
-{{!-- ONCE THE QUESTIONS ARRAY HAS BEEN RECEIVED! --}}
-    {{!-- How are we going to display them one at a time, one after another? --}}
-       
+{{!-- By the time we've gotten to this page, a Deck of questions from the Questions table will have already been made. --}}
+    {{!-- The questions will be displayed one at a time through the questions partial (question-details) --}}
+    {{!-- when eventListeners are activated, they will fetch GET requests from the /api/deck/:num endpoint --}}
+        {{!-- :num will increment by 1 every time a question is answered. This will happen within the same callback function 
+        as the fetch request being made. So it won't be as complicated as it sounds. --}}
