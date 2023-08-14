@@ -2,8 +2,14 @@
 <body>
   <h1>Trivia Categories</h1>
   <div>
-    {{#each categories}}
-      <button>{{name}}</button>
-    {{/each}}
+    {{!-- each category button will have a unique id --}}
+      {{!-- upon click, category will be assigned to category within event listener within triviapage.js --}}
+      {{!-- same thing with difficulty --}}
+  
+      {{>selectmenu-details}}
+
+    
   </div>
 </body>
+
+{{!-- <script src="/js/triviapage"></script> --}}
