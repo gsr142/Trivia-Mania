@@ -1,4 +1,7 @@
 <h1>GAMEBOARD!</h1>
+{{#if startButtonNotYetClicked}}
+    <button>?!?!?!?!?!?</button>
+{{else}}
 <div class="game-board">
     <div class="question-panel" id="question">Who is the greatest superhero of all time?</div>
     <form class="answers-panel">
@@ -10,6 +13,8 @@
         </ul>
     </form>
 </div>
+{{/if}}
+<script src="/js/game.js"></script>
 
 {{!-- TO-DO --}}
 {{!-- 
