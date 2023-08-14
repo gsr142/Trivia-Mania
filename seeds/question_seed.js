@@ -60,6 +60,18 @@ const questionData = [
             'd': 'Steven Gerrard'
         },
         difficulty: 'medium'
+    },
+    {
+        category_id : 2,
+        question_text: 'In what video game does Mario first appear?',
+        correct_answer: 'Jump Man',
+        answer_options: {
+            'a': 'Donkey Kong, Jr',
+            'b': 'Super Mario Brothers',
+            'c': 'Jump Man',
+            'd': 'Donkey Kong'
+        },
+        difficulty: 'medium'
     }
 ];
 
