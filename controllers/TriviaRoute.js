@@ -6,10 +6,11 @@ const { withAuth } = require("../utils/auth");
 router.get("/", withAuth, async (req, res) => {
   try {
     const categoryData = await Category.findAll({
-      where: {
-        user_id: req.session.user_id,
-      },
-      attributes: ["name"],
+      // where: {
+      //   user_id: req.session.user_id,
+      // },
+      // attributes: ["name"],
+      
     });
     
     res.render("triviapage", { categories: categoryData });
