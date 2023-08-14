@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Question } = require('../../models');
+const { Question, Category } = require('../../models');
 
 // this could be wrong, i tried to render everything in the triviapage, but we might have to adjust this particlar get request, might have to do a post
 // and bring the user to a designated endpoint that will consist of this parameters
@@ -29,6 +29,48 @@ router.get('/api/questions/:category', async (req, res) => {
       console.error('Error fetching questions:', err);
       res.status(500).json({ error: 'Internal server error' });
     }
-  });
+
+});
+
+
+//not working... not sure why...
+router.get('/:category/:difficulty', async ( req, res) => {
+    try {
+        console.log('GET REQUEST RECEIVED!');
+        // const cat_id = await db.query('SELECT id FROM category WHERE name = ?', req.params.category);
+        const cat_idData = await Category.findOne({
+            attributes: ['id'],
+            where: {
+                name: req.params.category
+            }
+        });
+
+        const cat_id = cat_idData.get({plain:true});
+
+       console.log(cat_id.id, "id")
+       console.log(req.params.difficulty, "difficulty")
+
+        const questionData = await Question.findAll({
+           
+                where: {
+                    category_id: cat_id.id,
+                    difficulty: req.params.difficulty
+                }
+            
+        });
+
+        const questions = questionData.map( question => question.get({plain:true}));
+        console.log(questions);
+        res.json(questions);
+        // res.render('gameboard-details', {questions: questions})
+    } catch (error) {
+        res.status(500).json(error);
+    }
+})
+
+
+
+
+
 
 module.exports = router;
