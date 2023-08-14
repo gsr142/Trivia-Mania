@@ -3,14 +3,14 @@
     <h2>Welcome to the Trivia Game!</h2>
     <p>This is a fun and exciting trivia game where you can test your knowledge on various topics.</p>
     
-    {{#unless logged_in}}
+    {{#if logged_in}}
+    <p>Ready to challenge yourself? Head to Trivia and start playing now!</p>
+      <a href="/trivia" class="button">Trivia</a>
+      <a id="logout" class="button">Logout</a>  
+    {{else}}
       <p>Get started by creating a new player account or logging in if you already have one.</p>
       <a href="/newplayer" class="button">Create Account</a>
       <a href="/login" class="button">Login</a>
-    {{else}}
-      <p>Ready to challenge yourself? Head to Trivia and start playing now!</p>
-      <a href="/trivia" class="button">Trivia</a>
-      <a href="/logout" id="logout" class="button">Logout</a>
-    {{/unless}}
+    {{/if}}
   </section>
 </main>

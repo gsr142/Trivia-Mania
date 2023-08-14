@@ -21,7 +21,7 @@ const populateCategories = async () => {
 
 const getQuestions = async (event) => {
   event.preventDefault();
-console.log("hello")
+
   const categorySelect = document.getElementById('category-select');
   const difficultySelect = document.getElementById('difficulty-select');
   const category = categorySelect.value;
@@ -31,10 +31,34 @@ console.log("hello")
     method: 'GET',
     headers: { 'Content-type': 'application/json' }
   });
-
-  const data = await response.json();
-  console.log(data);
+  // console.log(response);
+  if (response.ok) {
+    // console.log('response received:', response);
+    const questions = await response.json();
+    console.log(questions);
+    // return questions
+    populateQuestions(questions)
+  } else {
+    console.error(error);
+  }
+  // console.log(data);
+  // return data.render()
 };
+
+async function populateQuestions (questionData){
+  
+  const questionElement = document.getElementById('question');
+  questionElement.textContent = await questionData[0].question_text;
+  const answerA = document.getElementById('answer-A');
+  answerA.textContent = await questionData[0].answer_options.a;
+  const answerB = document.getElementById('answer-B');
+  answerB.textContent = await questionData[0].answer_options.b;
+  const answerC = document.getElementById('answer-C');
+  answerC.textContent = await questionData[0].answer_options.c;
+  const answerD = document.getElementById('answer-D');
+  answerD.textContent = await questionData[0].answer_options.d;
+  
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   // const categorySelect = document.getElementById('category-select');
