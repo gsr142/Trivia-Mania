@@ -1,18 +1,19 @@
-let category = 'sports';
-let difficulty = 'medium';
+let category = 'sports'; //query selectors
+let difficulty = 'medium';//query selectors
 
 let questions;
 
-const test = document.querySelector('.test-button').addEventListener('click', getQuestions)
 
 const getQuestions = async (event) => {
     event.preventDefault();
-
+    
     const response = await fetch(`api/question/${category}/${difficulty}`, {
-        method: 'POST',
-        body: JSON.stringify({category: category, difficulty: difficulty}),
+        method: 'GET',
         headers: { 'Content-type': 'application/json'}
     }) 
-
-    console.log(response.json())
+    
+    const data = await response.json()
+    console.log(data);
 }
+
+const test = document.querySelector('.test-button').addEventListener('click', getQuestions)
