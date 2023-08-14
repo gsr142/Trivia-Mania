@@ -1,36 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test Trivia</title>
-   <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-  <header class="header">
-    <nav class="navbar">
-      <h1 class="nav-logo">Trivia</h1>
-      <ul class="nav-menu">
-        <li class="nav-item"><a href="/"><span aria-hidden="true">Home</span></a></li>
-        {{#unless logged_in}}
-          <li class="nav-item"><a href="/login"><span aria-hidden="true">Login</span></a></li>
-          <li class="nav-item"><a href="/newplayer"><span aria-hidden="true">New Player</span></a></li>
-        {{else}}
-          <li class="nav-item"><a href="/trivia"><span aria-hidden="true">Trivia</span></a></li>
-          <li class="nav-item"><a href="/logout" id="logout"><span aria-hidden="true">Logout</span></a></li>
-        {{/unless}}
-      </ul>
-    </nav>
-  </header>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Test Trivia</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Preahvihear&display=swap">
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
+  <body>
+    <header class='header'>
+      <div class='container'>
+        <nav class='navbar'>
+          <h1 class='nav-logo'>Trivia Mania</h1>
+          <ul class='nav-menu'>
+            <li class='nav-item'><a href='/'><span aria-hidden='true'>Home</span></a></li>
+            {{#unless logged_in}}
+              <li class='nav-item'><a href='/login'><span aria-hidden='true'>Login</span></a></li>
+              <li class='nav-item'><a href='/newplayer'><span aria-hidden='true'>New Player</span></a></li>
+            {{else}}
+              <li class='nav-item'><a href='/trivia'><span aria-hidden='true'>Trivia</span></a></li>
+              <li class='nav-item'><a href='/logout' id='logout'><span aria-hidden='true'>Logout</span></a></li>
+            {{/unless}}
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-  {{!-- <main class="content"> --}}
-      {{{body}}}
-  {{!-- </main> --}}
+    <div class="content-container">
+        <div class="content-box">
+            <main class="content">
+                {{{body}}}
+            </main>
+        </div>
+    </div>
+ 
 
-  <footer class="footer">
-
-
-
-  </footer>
-</body>
+    <footer class='footer'>
+    </footer>
+    <script
+      src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js'
+      integrity='sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm'
+      crossorigin='anonymous'
+    ></script>
+  </body>
 </html>
