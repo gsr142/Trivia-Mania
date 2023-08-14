@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const apiRoutes = require('./api/');
+const apiRoutes = require('./api');
 const landingRoutes = require('./landingRoute');
 const loginRoutes = require('./loginRoute')
 const newPlayerRoutes = require('./newplayer')

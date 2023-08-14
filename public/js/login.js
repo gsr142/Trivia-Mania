@@ -5,8 +5,8 @@ loginForm.addEventListener('submit', async (event) => {
   event.preventDefault(); // Prevent the default form submission
 
   // Get the input values from the form
-  const username = loginForm.querySelector('#username').value;
-  const password = loginForm.querySelector('#password').value;
+  const username = loginForm.querySelector('#username').value.trim();
+  const password = loginForm.querySelector('#password').value.trim();
 
   try {
     // Send a POST request to the login route
