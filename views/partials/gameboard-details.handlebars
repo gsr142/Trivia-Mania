@@ -1,1 +1,27 @@
-<div>GAMEBOARD!</div>
+<h1>GAMEBOARD!</h1>
+<div class="game-board">
+    <div class="question-panel" id="question">Who is the greatest superhero of all time?</div>
+    <form class="answers-panel">
+        <ul class="answers-list">
+            <li class="answer" id="A">Superman</li>
+            <li class="answer" id="B">Spiderman</li>
+            <li class="answer" id="C">Batman</li>
+            <li class="answer" id="D">Naruto</li>
+        </ul>
+    </form>
+</div>
+
+{{!-- TO-DO --}}
+{{!-- 
+    - in game.js...
+        -add event listeners to list items
+        - upon click...
+            - reference the questions array to check the answer
+            - if correct, reward the user points, then add 1 to the index (default set at 0), display next Question
+            - else,  add 1 to index, display next Question 
+        - define displayQuestion function
+            - accepts params: questions and index, with default set at 0
+            - changes value of html elements that we've assigned to js variables using query selectors
+
+    -Click -> answer gets checked -> new question gets displayed -> CLICK -> answer gets checked -> new question gets displayed
+ --}}
