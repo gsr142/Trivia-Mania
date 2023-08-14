@@ -34,6 +34,3 @@ loginForm.addEventListener('submit', async (event) => {
 });
 
 //create account button
-document.querySelector('.create-account-form').addEventListener('submit', createAccountButtonFunction);
-
-//create account button function
