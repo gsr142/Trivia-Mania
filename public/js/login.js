@@ -37,20 +37,3 @@ loginForm.addEventListener('submit', async (event) => {
 document.querySelector('.create-account-form').addEventListener('submit', createAccountButtonFunction);
 
 //create account button function
-const createAccountButtonFunction = async () => {
-    
-    const username = document.querySelector('.create-username').value.trim();
-    const password = document.querySelector('.create-password').value.trim();
-    
-    const response = await fetch('/api/user', {
-        method: 'POST',
-        body: JSON.stringify({username: username, password: password}),
-        headers: { 'Content-Type': 'application/json'}
-    })
-
-    if (response.ok) {
-        document.location.replace('/homepage');
-    } else {
-        document.location.replace('/landingpage');
-    }
-}
