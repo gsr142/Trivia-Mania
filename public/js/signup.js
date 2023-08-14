@@ -7,7 +7,7 @@ signupForm.addEventListener('submit', async (event) => {
   const password = signupForm.querySelector('#password').value;
 
   try {
-    const response = await fetch('/newplayer', {
+    const response = await fetch('/api/user/newplayer', {
       method: 'POST',
       body: JSON.stringify({ username, password }),
       headers: {

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.post("/", async (req, res) => {
+router.post("/newplayer", async (req, res) => {
     try {
         const newUser = await User.create({
             name: req.body.username,
@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
             res.status(400).json({ message: 'Incorrect username or password, please try again' });
             return;
         }
-
+        console.log(userData.id)
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
