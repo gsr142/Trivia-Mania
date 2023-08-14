@@ -1,15 +1,88 @@
-// basic just needs some front end love
 <body>
-  <h1>Trivia Categories</h1>
-  <div>
-    {{!-- each category button will have a unique id --}}
-      {{!-- upon click, category will be assigned to category within event listener within triviapage.js --}}
-      {{!-- same thing with difficulty --}}
-  
-      {{>selectmenu-details}}
+    <!-- Your header, navigation, or other common elements can go here -->
 
-    
-  </div>
+    <!-- Main content area -->
+    <div class="main-content">
+        <!-- Category Selection Section -->
+        <section class="category-selection">
+            <h2>Test Your Knowledge!</h2>
+<form id="category-form">
+    <label for="category-select">Choose a category:</label>
+    <select id="category-select" name="category">
+        {{#each categories}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select>
+    <label for="difficulty-select">Choose a difficulty:</label>
+    <select id="difficulty-select" name="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+    </select>
+    <button type="button" id="start-trivia-button">Start Trivia</button>
+</form>
+
+        </section>
+
+        <!-- Other content for the trivia page can go here -->
+    </div>
+
+    <!-- Your footer or other common elements can go here -->
+
+<script src="/public/js/triviapage.js" script/>
 </body>
 
-{{!-- <script src="/js/triviapage"></script> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <div>
+    <label for="categoryDropdown">Select a category:</label>
+    <select id="categoryDropdown" onchange="selectCategory(this)">
+        <option value="">Select a category</option>
+        {{#each categories as |category|}}
+            <option value="{{category.id}}">{{category.name}}</option>
+        {{/each}}
+    </select>
+</div> --}}
+
+  
