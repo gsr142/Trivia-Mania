@@ -13,13 +13,13 @@
           <h1 class='nav-logo'>Trivia Mania</h1>
           <ul class='nav-menu'>
             <li class='nav-item'><a href='/'><span aria-hidden='true'>Home</span></a></li>
-            {{#unless logged_in}}
+            {{#if logged_in}}
               <li class='nav-item'><a href='/login'><span aria-hidden='true'>Login</span></a></li>
               <li class='nav-item'><a href='/newplayer'><span aria-hidden='true'>New Player</span></a></li>
             {{else}}
               <li class='nav-item'><a href='/trivia'><span aria-hidden='true'>Trivia</span></a></li>
               <li class='nav-item'><a href='/logout' id='logout'><span aria-hidden='true'>Logout</span></a></li>
-            {{/unless}}
+            {{/if}}
           </ul>
         </nav>
       </div>
