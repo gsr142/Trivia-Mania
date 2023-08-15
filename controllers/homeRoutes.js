@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const reverseBubbleSort = require('../utils/helpers');
 const { Category, User} = require('../models');
 
 // rendering to homepage
@@ -23,10 +24,11 @@ router.get("/leaderboard", async (req, res) => {
 
     const highScoresData = await User.findAll({attributes: ['name', 'highscore']});
     const highScores = highScoresData.map( highScore => highScore.get({plain:true}));
+    console.log(highScores);
 
-    const topThree = reverseBubbleSort(highScores).slice(0,2);
+    // const topThree = reverseBubbleSort(highScores).slice(0,2);
 
-    res.render('leaderboard', {topThree: topThree});
+    res.render('leaderboard');
 })
 
 module.exports = router;
