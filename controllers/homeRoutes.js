@@ -24,9 +24,9 @@ router.get("/leaderboard", async (req, res) => {
     const highScoresData = await User.findAll({attributes: ['name', 'highscore']});
     const highScores = highScoresData.map( highScore => highScore.get({plain:true}));
 
-    const topThree = reverseBubbleSort(highScores);
+    const topThree = reverseBubbleSort(highScores).slice(0,2);
 
-    
+    res.render('leaderboard', {topThree: topThree});
 })
 
 module.exports = router;
