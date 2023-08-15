@@ -8,10 +8,7 @@ router.get('/', withAuth, (req, res) => {
       console.log(logged_in)
       console.log(req.session.high_score)
       res.render("triviapage", {logged_in, high_score: req.session.high_score});
-  // } catch (err) {
-  //     console.error(err);
-  //     res.status(500).send("Server Error")
-  // }
+
 })
 
 module.exports = router;

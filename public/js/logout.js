@@ -1,5 +1,3 @@
-
-
 const logoutFunction = async (e) => {
     e.preventDefault();
     
@@ -16,5 +14,4 @@ const logoutFunction = async (e) => {
         alert(response.statuseText);
     }
 }
-
 document.querySelector('#logout').addEventListener('click', logoutFunction);

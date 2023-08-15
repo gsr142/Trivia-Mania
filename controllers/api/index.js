@@ -9,7 +9,6 @@ router.use('/user', userRoutes);
 router.use('/question', questionRoutes);
 router.use('/category', categoryRoutes);
 // //router.use('/leaderboard', leaderboardRoutes);
-// //router.use('/start', startRoutes)
-// // router.use('/user', userRoutes)
+
 
 module.exports = router;
