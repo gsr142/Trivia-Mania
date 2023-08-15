@@ -16,7 +16,7 @@ const getQuestions = async (event) => {
     console.log(questions);
     // return questions
     populateQuestions(questions);
-    document.querySelector('.category-form').setAttribute('class', 'hide');
+    document.querySelector('#category-form').setAttribute('class', 'hide');
   } else {
     console.error(error);
   }
