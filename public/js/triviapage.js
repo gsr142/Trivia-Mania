@@ -1,3 +1,5 @@
+// const { count } = require("../../models/User");
+
 const populateCategories = async () => {
   const categorySelect = document.getElementById('category-select');
 
@@ -46,48 +48,78 @@ const getQuestions = async (event) => {
 };
 
 async function populateQuestions(questionData) {
-  
   for (let i = 0; i < questionData.length; i++) {
     const gameBoard = document.createElement('div');
     const questionElement = document.createElement('div');
     questionElement.setAttribute('class', 'question-panel');
     questionElement.setAttribute('id', 'question');
     questionElement.innerText = questionData[i].question_text;
-    
+
     const answerPanel = document.createElement('form');
     answerPanel.setAttribute('class', 'answers-panel');
 
     const answersList = document.createElement('ul');
     answersList.setAttribute('class', 'answers-list');
-    categoryCard = document.querySelector('.category-selection')
-    categoryCard.appendChild(gameBoard)
+    categoryCard = document.querySelector('.category-selection');
+    categoryCard.appendChild(gameBoard);
     gameBoard.appendChild(questionElement);
     gameBoard.appendChild(answerPanel);
     answerPanel.appendChild(answersList);
-    
-    
+
     let answerArr = questionData[i].answer_options;
     let answerKey = Object.values(answerArr);
-    
+    let correctAns = questionData[i].correct_answer;
+    console.log(questionData);
+    console.log(correctAns);
     answerKey.forEach((elem) => {
       const answer = document.createElement('li');
       answer.setAttribute('class', 'answer');
-      
+
       const answerInput = document.createElement('input');
       answerInput.setAttribute('type', 'radio');
       answerInput.setAttribute('name', 'answer');
-      // answerInput.setAttribute('id', );
+
+      // give correct answer an id of correct
+      if (elem === correctAns) {
+        answerInput.setAttribute('id', 'correct');
+
+        answerInput.addEventListener('click', function () {
+          count++;
+          console.log(count);
+        });
+      }
+
       const label = document.createElement('label');
       label.setAttribute('for', elem);
       label.innerText = elem;
-      
-      
+
       answer.appendChild(answerInput);
       answer.appendChild(label);
       answersList.appendChild(answer);
     });
   }
 }
+count = 0;
+
+const updateHighscores = async (event) => {
+  event.preventDefault();
+  const high_score = event.target.getAttribute('data-highscore');
+  if (count > high_score) {
+    const response = await fetch(`/api/user`, {
+      method: 'PUT',
+      body: JSON.stringify({ highscore: count }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      document.location.replace('/leaderboard');
+    } else {
+      alert('Failed to Update');
+    }
+  }
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   // const categorySelect = document.getElementById('category-select');
@@ -96,6 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const startTriviaButton = document.querySelector('#start-trivia-button');
   startTriviaButton.addEventListener('click', getQuestions);
+  document
+    .querySelector('#answer-button')
+    .addEventListener('click', updateHighscores);
 });
 
 // // Function to fetch and populate categories in the dropdown
