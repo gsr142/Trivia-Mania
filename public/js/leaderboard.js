@@ -9,8 +9,6 @@ const fetchScores = async () => {
 
     console.log(response);
 
-    
-
 }
 
 
