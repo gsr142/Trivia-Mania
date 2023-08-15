@@ -4,8 +4,14 @@ document.querySelector('#logout').addEventListener('click', logoutFunction);
 const logoutFunction = async (e) => {
     e.preventDefault();
 
-    if (req.session.logged_in) {
-        req.session.logged_in = false;
-        document.location.replace('homepage')
+    const response = await fetch('/api/user/logout', {
+        method: 'POST',
+        header: {'Content-Type': 'application/json'}
+    })
+
+    if (response.ok) {
+        document.location.replace('/');
+    } else {
+        alert(response.statuseText);
     }
 }
