@@ -4,10 +4,10 @@ function reverseBubbleSort(arr){
 
         if (arr[i].highscore > arr[i-1].highscore) {
             let a = arr[i]
-            let b = arr[i+1];
+            let b = arr[i-1];
 
             arr[i] = b;
-            arr[i+1] = a;
+            arr[i-1] = a;
 
             reverseBubbleSort(arr);
         }

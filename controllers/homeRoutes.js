@@ -26,9 +26,11 @@ router.get("/leaderboard", async (req, res) => {
     const highScores = highScoresData.map( highScore => highScore.get({plain:true}));
     console.log(highScores);
 
-    // const topThree = reverseBubbleSort(highScores).slice(0,2);
+    const topThree = reverseBubbleSort(highScores).slice(0,3);
 
-    res.render('leaderboard');
+    res.render('leaderboard', {
+        logged_in: req.session.logged_in,
+        topThree: topThree});
 })
 
 module.exports = router;
