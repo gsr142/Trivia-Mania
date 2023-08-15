@@ -4,7 +4,8 @@ const { Category } = require('../models');
 // rendering to homepage
 router.get("/", async (req, res) => {
     try {
-        res.render("homepage");
+        console.log(req.session.logged_in);
+        res.render("homepage", {logged_in: req.session.logged_in});
     } catch (err) {
         console.error(err); // Log the error for debugging
         res.status(500).send("Server Error") 
