@@ -11,7 +11,7 @@ router.post("/newplayer", async (req, res) => {
         req.session.save(() => {
             req.session.user_id = newUser.id;
             req.session.username = newUser.name;
-            req.session.logged_in = true;
+            req.session.logged_in = true; // login status
         });
 
         console.log('New user created:', newUser);
@@ -44,11 +44,11 @@ router.post('/login', async (req, res) => {
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
+            res.json({ user: userData, message: 'Ready to test your trivia knowledge?!' });
         });
 
         console.log('User logged in:', userData);
 
-        res.json({ user: userData, message: 'Ready to test your trivia knowledge?!' });
 
     } catch (err) {
         console.error('Error during login:', err);
