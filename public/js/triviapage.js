@@ -17,7 +17,8 @@ const getQuestions = async (event) => {
     // return questions
     populateQuestions(questions);
     document.querySelector('#category-form').setAttribute('class', 'hide');
-  } else {
+    document.querySelector('#answer-button').removeAttribute('class');
+    } else {
     console.error(error);
   }
 };
