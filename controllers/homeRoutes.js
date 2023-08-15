@@ -18,4 +18,6 @@ router.get("/triviapage", async (req, res) => {
     res.render('triviapage', {categories: categories, logged_in: req.session.logged_in, high_score: req.session.high_score});
 })
 
+router.get("leaderboard", async (req, res) => )
+
 module.exports = router;

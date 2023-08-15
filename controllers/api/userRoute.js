@@ -96,4 +96,15 @@ router.post('/logout', (req, res) => {
   });
 
 
+  router.get('/', async (req, res) => {
+    try{
+        const userData = await User.findAll();
+        console.log('hello', userData);
+        res.json(userData)
+    }catch (err) {
+        console.log(err)
+        res.status(err)
+    }
+})
+
 module.exports = router;

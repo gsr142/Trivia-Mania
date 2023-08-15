@@ -114,11 +114,11 @@ const updateHighscores = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/leaderboard');
     } else {
       alert('Failed to Update');
     }
   }
+  document.location.replace('/leaderboard');
 };
 
 document.addEventListener('DOMContentLoaded', () => {
