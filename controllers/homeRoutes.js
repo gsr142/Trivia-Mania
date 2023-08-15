@@ -17,7 +17,12 @@ router.get("/triviapage", async (req, res) => {
 
     const categoriesData = await Category.findAll();
     const categories = await categoriesData.map(category => category.get({plain: true}));
-    res.render('triviapage', {categories: categories, logged_in: req.session.logged_in, high_score: req.session.high_score});
+
+    const userData = await User.findAll({ where: { id: req.session.user_id}});
+    const user = userData.get({plain:true});
+
+    const highScore = user.highscore;
+    res.render('triviapage', {categories: categories, logged_in: req.session.logged_in, high_score: highScore});
 })
 
 router.get("/leaderboard", async (req, res) => {
