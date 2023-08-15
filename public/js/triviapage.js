@@ -73,7 +73,7 @@ async function populateQuestions(questionData) {
     });
   }
 }
-// count = 0;
+count = 0;
 
 const updateHighscores = async (event) => {
   event.preventDefault();
@@ -88,11 +88,11 @@ const updateHighscores = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/leaderboard');
     } else {
       alert('Failed to Update');
     }
   }
+  document.location.replace('/leaderboard');
 };
 
 document.addEventListener('DOMContentLoaded', () => {

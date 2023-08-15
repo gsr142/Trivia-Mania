@@ -12,7 +12,7 @@ router.post("/newplayer", async (req, res) => {
             req.session.user_id = newUser.id;
             req.session.username = newUser.name;
             req.session.logged_in = true; // login status
-            req.session.high_score = userData.highscore
+            req.session.high_score = newUser.highscore
             console.log(req.session.high_score)
             console.log('New user created:', newUser);
     
@@ -95,5 +95,14 @@ router.post('/logout', (req, res) => {
     }
   });
 
-
+router.get('/', async (req, res) => {
+    try{
+        const userData = await User.findAll();
+        console.log('hello', userData);
+        res.json(userData)
+    }catch (err) {
+        console.log(err)
+        res.status(err)
+    }
+})
 module.exports = router;
