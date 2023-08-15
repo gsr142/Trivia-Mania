@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 router.get("/triviapage", async (req, res) => {
     const categoriesData = await Category.findAll();
     const categories = await categoriesData.map(category => category.get({plain: true}));
-    res.render('triviapage', {categories: categories, logged_in: req.session.logged_in});
+    res.render('triviapage', {categories: categories, logged_in: req.session.logged_in, high_score: req.session.high_score});
 })
 
 module.exports = router;
