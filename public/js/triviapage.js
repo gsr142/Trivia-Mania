@@ -46,6 +46,8 @@ async function populateQuestions(questionData) {
     let answerArr = questionData[i].answer_options;
     let answerKey = Object.values(answerArr);
     let correctAns = questionData[i].correct_answer;
+    let answeredQuestions = new Set();
+    console.log(answeredQuestions)
     console.log(questionData);
     console.log(correctAns);
     answerKey.forEach((elem) => {
@@ -61,7 +63,9 @@ async function populateQuestions(questionData) {
         answerInput.setAttribute('id', 'correct');
 
         answerInput.addEventListener('click', function () {
+          if (!answeredQuestions.has(i))
           count++;
+          answeredQuestions.add(i);
           console.log(count);
         });
       }
