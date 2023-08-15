@@ -16,6 +16,7 @@ const getQuestions = async (event) => {
     console.log(questions);
     // return questions
     populateQuestions(questions);
+    document.querySelector('.category-form').setAttribute('class', 'hide');
   } else {
     console.error(error);
   }
@@ -23,6 +24,7 @@ const getQuestions = async (event) => {
 
 async function populateQuestions(questionData) {
   for (let i = 0; i < questionData.length; i++) {
+    
     const gameBoard = document.createElement('div');
     const questionElement = document.createElement('div');
     questionElement.setAttribute('class', 'question-panel');
@@ -92,6 +94,7 @@ const updateHighscores = async (event) => {
       alert('Failed to Update');
     }
   }
+  
   document.location.replace('/leaderboard');
 };
 
