@@ -15,14 +15,15 @@ const getQuestions = async (event) => {
     const questions = await response.json();
     console.log(questions);
     // return questions
-    populateQuestions(questions);
+    populateQuestions(questions, difficulty);
     document.querySelector('#category-form').setAttribute('class', 'hide');
-  } else {
+    document.querySelector('#answer-button').removeAttribute('class');
+    } else {
     console.error(error);
   }
 };
 
-async function populateQuestions(questionData) {
+async function populateQuestions(questionData, difficulty) {
   for (let i = 0; i < questionData.length; i++) {
     
     const gameBoard = document.createElement('div');
@@ -62,25 +63,25 @@ async function populateQuestions(questionData) {
         answerInput.setAttribute('id', 'correct');
 
         answerInput.addEventListener('click', function () {
-          if (elem === correctAns) {
-            answerInput.setAttribute('id', 'correct');
-    
-            answerInput.addEventListener('click', function () {
-              if (!answeredQuestions.has(i))
-              if (difficulty === 'easy'){
-                count++;
-    
-              } else if (difficulty === 'medium'){
-                count+=2
-    
-              }else{
-                count+=3
-    
-              }
-              answeredQuestions.add(i);
-              console.log(count);
-            });
+
+          if (!answeredQuestions.has(i))
+          if (difficulty === 'easy'){
+            count++;
+            console.log(count);
+
+          } else if (difficulty === 'medium'){
+            count+=2
+            console.log(count);
+          }else{
+            count+=3
+            console.log(count);
+            
           }
+          answeredQuestions.add(i);
+          console.log(count);
+        });
+      }
+
 
       const label = document.createElement('label');
       label.setAttribute('for', elem);
@@ -97,7 +98,7 @@ count = 0;
 
 const updateHighscores = async (event) => {
   event.preventDefault();
-  const high_score = event.target.getAttribute('data-highscore');
+  const high_score = event.target.getAttribute('data-highScore');
   if (count > high_score) {
     const response = await fetch(`/api/user`, {
       method: 'PUT',
