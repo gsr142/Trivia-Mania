@@ -32,6 +32,10 @@ User.init(
             type: DataTypes.INTEGER,
             allowNull: true
         },
+        currentscore: {
+            type: DataTypes.INTEGER,
+            allwNull: true,
+        }
     },
     {
         hooks: {

@@ -95,7 +95,7 @@ count = 0;
 
 const updateHighscores = async (event) => {
   event.preventDefault();
-  const high_score = event.target.getAttribute('data-highscore');
+  const high_score = event.target.getAttribute('data-highScore');
   if (count > high_score) {
     const response = await fetch(`/api/user`, {
       method: 'PUT',
