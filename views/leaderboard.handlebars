@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <div class="leader-board"></div>
-        {{#each topThree as |player|}}
-            <div>{{player.name}}: {{player.highscore}}</div>
-        {{/each}}
-    </body>
+
+
+
+<body>
+        <div>
+            <h3>High Scores</h3>
+            <div class="leader-board">
+                {{#each topThree as |player|}}
+                    <div class="player-row">
+                        <div class="player-name">{{player.name}}</div>
+                        <div class="player-score">{{player.highscore}}</div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+
     <script src="/js/leaderboard.js"></script>
-</html>
+</body>

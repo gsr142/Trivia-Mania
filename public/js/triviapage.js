@@ -63,6 +63,7 @@ async function populateQuestions(questionData, difficulty) {
         answerInput.setAttribute('id', 'correct');
 
         answerInput.addEventListener('click', function () {
+
           if (!answeredQuestions.has(i))
           if (difficulty === 'easy'){
             count++;
@@ -81,6 +82,7 @@ async function populateQuestions(questionData, difficulty) {
         });
       }
 
+
       const label = document.createElement('label');
       label.setAttribute('for', elem);
       label.innerText = elem;
@@ -91,6 +93,7 @@ async function populateQuestions(questionData, difficulty) {
     });
   }
 }
+
 count = 0;
 
 const updateHighscores = async (event) => {
