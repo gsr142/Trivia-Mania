@@ -17,7 +17,7 @@ Trivia-Mania is a user-friendly trivia website designed to provide entertainment
 
 
 ## Features
-* Diverse Categories: Choose from an array of exciting categories, including History, Science, Movies, Sports, General Knowledge, and more.
+* Diverse Categories: Choose from an array of exciting categories, including History, Sports, Video Games, and more.
 
 * Multiple Difficulty Levels: Tailor your trivia experience by selecting your preferred difficulty level—Easy, Medium, or Hard.
 
@@ -27,6 +27,7 @@ Trivia-Mania is a user-friendly trivia website designed to provide entertainment
 
 * Educational Fun: Trivia-Mania is not just about having a good time; it's an opportunity to learn interesting facts and expand your knowledge base.
 
+* ![demo gif](./assets/Test%20Trivia.gif)
 
 ## Get Started
 1. [Visit Trivia-Mania](https://trivia-mania-34ca81ef04dc.herokuapp.com/).
