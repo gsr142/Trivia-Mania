@@ -67,21 +67,25 @@ async function populateQuestions(questionData, difficulty) {
         answerInput.setAttribute('id', 'correct');
 
         answerInput.addEventListener('click', function () {
+
           if (!answeredQuestions.has(i))
           if (difficulty === 'easy'){
             count++;
-            
+            console.log(count);
+
           } else if (difficulty === 'medium'){
             count+=2
-            
+            console.log(count);
           }else{
             count+=3
+            console.log(count);
             
           }
           answeredQuestions.add(i);
           console.log(count);
         });
       }
+
 
       const label = document.createElement('label');
       label.setAttribute('for', elem);
@@ -93,11 +97,12 @@ async function populateQuestions(questionData, difficulty) {
     });
   }
 }
+
 count = 0;
 
 const updateHighscores = async (event) => {
   event.preventDefault();
-  const high_score = event.target.getAttribute('data-highscore');
+  const high_score = event.target.getAttribute('data-highScore');
   if (count > high_score) {
     const response = await fetch(`/api/user`, {
       method: 'PUT',
