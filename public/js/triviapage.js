@@ -62,12 +62,25 @@ async function populateQuestions(questionData) {
         answerInput.setAttribute('id', 'correct');
 
         answerInput.addEventListener('click', function () {
-          if (!answeredQuestions.has(i))
-          count++;
-          answeredQuestions.add(i);
-          console.log(count);
-        });
-      }
+          if (elem === correctAns) {
+            answerInput.setAttribute('id', 'correct');
+    
+            answerInput.addEventListener('click', function () {
+              if (!answeredQuestions.has(i))
+              if (difficulty === 'easy'){
+                count++;
+    
+              } else if (difficulty === 'medium'){
+                count+=2
+    
+              }else{
+                count+=3
+    
+              }
+              answeredQuestions.add(i);
+              console.log(count);
+            });
+          }
 
       const label = document.createElement('label');
       label.setAttribute('for', elem);
@@ -79,6 +92,7 @@ async function populateQuestions(questionData) {
     });
   }
 }
+
 count = 0;
 
 const updateHighscores = async (event) => {
