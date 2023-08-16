@@ -15,7 +15,7 @@ const getQuestions = async (event) => {
     const questions = await response.json();
     console.log(questions);
     // return questions
-    populateQuestions(questions);
+    populateQuestions(questions, difficulty);
     document.querySelector('#category-form').setAttribute('class', 'hide');
     document.querySelector('#answer-button').removeAttribute('class');
     } else {
@@ -23,7 +23,7 @@ const getQuestions = async (event) => {
   }
 };
 
-async function populateQuestions(questionData) {
+async function populateQuestions(questionData, difficulty) {
   for (let i = 0; i < questionData.length; i++) {
     
     const gameBoard = document.createElement('div');
@@ -50,6 +50,10 @@ async function populateQuestions(questionData) {
     console.log(answeredQuestions)
     console.log(questionData);
     console.log(correctAns);
+
+    // const difficultySelect = document.getElementById('difficulty-select');
+    // const difficulty = difficultySelect.value;
+    
     answerKey.forEach((elem) => {
       const answer = document.createElement('li');
       answer.setAttribute('class', 'answer');
@@ -64,7 +68,16 @@ async function populateQuestions(questionData) {
 
         answerInput.addEventListener('click', function () {
           if (!answeredQuestions.has(i))
-          count++;
+          if (difficulty === 'easy'){
+            count++;
+            
+          } else if (difficulty === 'medium'){
+            count+=2
+            
+          }else{
+            count+=3
+            
+          }
           answeredQuestions.add(i);
           console.log(count);
         });

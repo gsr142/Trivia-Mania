@@ -184,7 +184,68 @@ const questionData = [
         },
         difficulty: 'hard'
     },
-    //vg questions medium
+    // vg easy
+    {
+        category_id : 2,
+        question_text: 'In CoD: Black Ops III, what is the name of the rogue A.I. antagonist?',
+        correct_answer: 'Corvus',
+        answer_options: {
+            'a': 'Corvus',
+            'b': 'Cabal',
+            'c': 'Legion',
+            'd': 'Icarus'
+        },
+        difficulty: 'easy'
+    },
+    {
+        category_id : 2,
+        question_text: 'In the Assassins Creed series,what was the name that Desmond Miles was given by Abstergo?',
+        correct_answer: 'Subject 17',
+        answer_options: {
+            'a': 'Subject 15',
+            'b': 'Subject 16',
+            'c': 'Subject 17',
+            'd': 'Subject 18'
+        },
+        difficulty: 'easy'
+    },
+    {
+        category_id : 2,
+        question_text: 'Which Nintendo 64 game did NOT have Luigi in it?',
+        correct_answer: 'Super Mario 64',
+        answer_options: {
+            'a': 'Paper Mario',
+            'b': 'Mario Party 2',
+            'c': 'Super Smash Bros.',
+            'd': 'Super Mario 64'
+        },
+        difficulty: 'easy'
+    },
+    {
+        category_id : 2,
+        question_text: 'What was the first game in the Battlefield series?',
+        correct_answer: 'Battlefield 1942',
+        answer_options: {
+            'a': 'Battlefield 1942',
+            'b': 'Battlefield 1',
+            'c': 'Battlefield 2',
+            'd': 'Battlefield Vietnam'
+        },
+        difficulty: 'easy'
+    },
+    {
+        category_id : 2,
+        question_text: 'In Mortal Kombat, each character is capable of a finishing move called a _________.',
+        correct_answer: 'Fatality',
+        answer_options: {
+            'a': 'Execution',
+            'b': 'Fatality',
+            'c': 'Murder',
+            'd': 'Slaughter'
+        },
+        difficulty: 'easy'
+    },
+    // vg questions medium
     {
         category_id : 2,
         question_text: 'In what video game does Mario first appear?',
@@ -197,6 +258,116 @@ const questionData = [
         },
         difficulty: 'medium'
     },
+    {
+        category_id : 2,
+        question_text: 'In Grand Theft Auto: V, what wanted level does the player receive if they enter Zancudo Army Base north of Los Santos',
+        correct_answer: '4',
+        answer_options: {
+            'a': '2',
+            'b': '3',
+            'c': '4',
+            'd': '5'
+        },
+        difficulty: 'medium'
+    },
+    {
+        category_id : 2,
+        question_text: 'Where does The Legend of Zelda: Majoras Mask, take place?',
+        correct_answer: 'Termina',
+        answer_options: {
+            'a': 'Gysahl',
+            'b': 'Termina',
+            'c': 'Hyrule',
+            'd': 'Besaid'
+        },
+        difficulty: 'medium'
+    },
+    {
+        category_id : 2,
+        question_text: 'Which musical artist was NOT featured as playable avatars in the game DJ Hero?',
+        correct_answer: 'Dr. Dre',
+        answer_options: {
+            'a': 'DJ Shadow',
+            'b': 'Dr. Dre',
+            'c': 'Daft Punk',
+            'd': 'Grandmaster Flash'
+        },
+        difficulty: 'medium'
+    },
+    {
+        category_id : 2,
+        question_text: 'What is a Tetris piece called?',
+        correct_answer: 'Tetromino',
+        answer_options: {
+            'a': 'Tetratile',
+            'b': 'Tetripiece',
+            'c': 'Tetris',
+            'd': 'Tetromino'
+        },
+        difficulty: 'medium'
+    },
+    //VG hard
+    {
+        category_id : 2,
+        question_text: 'In oldschool runescape, to reach level skill 99, the player needs to reach __ xp.',
+        correct_answer: '13,034,431 XP',
+        answer_options: {
+            'a': '12,904,431',
+            'b': '11,857,431',
+            'c': '14,620,431',
+            'd': '13,034,431 XP'
+        },
+        difficulty: 'hard'
+    },
+    {
+        category_id : 2,
+        question_text: 'In Counter Strike: Global Offensive, what is the code implanted onto the C4 as the Terrorists plant the bomb?',
+        correct_answer: '7355608',
+        answer_options: {
+            'a': '7355608',
+            'b': '7890728',
+            'c': '7256380',
+            'd': '7726354'
+        },
+        difficulty: 'hard'
+    },
+    {
+        category_id : 2,
+        question_text: '"What programming language was used to create the game Minecraft?',
+        correct_answer: 'Java',
+        answer_options: {
+            'a': 'HTML 5',
+            'b': 'C++',
+            'c': 'Python',
+            'd': 'Java'
+        },
+        difficulty: 'hard'
+    },
+    {
+        category_id : 2,
+        question_text: 'What year was the original SimCity released?',
+        correct_answer: '1989',
+        answer_options: {
+            'a': '1988',
+            'b': '1989',
+            'c': '1990',
+            'd': '1991'
+        },
+        difficulty: 'hard'
+    },
+    {
+        category_id : 2,
+        question_text: 'In Sonic the Hedgehog 3 for the Sega Genesis, what is the color of the second Chaos Emerald you can get from Special Stages?',
+        correct_answer: 'Orange',
+        answer_options: {
+            'a': 'Blue',
+            'b': 'Green',
+            'c': 'Red',
+            'd': 'Orange'
+        },
+        difficulty: 'hard'
+    },
+
     // History questions easy
     {
         category_id : 3,
@@ -319,6 +490,68 @@ const questionData = [
         },
         difficulty: 'medium'
     },
+    // History hard
+    {
+        category_id : 3,
+        question_text: 'What was found in 1946 by two young shepards near a cave?',
+        correct_answer: 'Dead Sea Scrolls',
+        answer_options: {
+            'a': 'The Blackbeard Chest',
+            'b': 'The Shroud of Turin',
+            'c': 'The First Oaxaca Cave Sleeper',
+            'd': 'Dead Sea Scrolls'
+        },
+        difficulty: 'hard'
+    },
+    {
+        category_id : 3,
+        question_text: 'When was the city of Rome, Italy founded?',
+        correct_answer: '753 BCE',
+        answer_options: {
+            'a': '902 BCE',
+            'b': '524 BCE',
+            'c': '753 BCE',
+            'd': '697 BCE'
+        },
+        difficulty: 'hard'
+    },
+    {
+        category_id : 3,
+        question_text: 'What was the original name of New York City?',
+        correct_answer: 'New Amsterdam',
+        answer_options: {
+            'a': 'New Amsterdam',
+            'b': 'New London',
+            'c': 'New Paris',
+            'd': 'New England'
+        },
+        difficulty: 'hard'
+    },
+    {
+        category_id : 3,
+        question_text: 'Which of the following Physicists aided Nazi Germany in their production of a nuclear weapon?',
+        correct_answer: 'Werner Heisenberg',
+        answer_options: {
+            'a': 'Albert Einstein',
+            'b': 'Max Planck',
+            'c': 'John von Neumann',
+            'd': 'Werner Heisenberg'
+        },
+        difficulty: 'hard'
+    },
+    {
+        category_id : 3,
+        question_text: 'In what year was Canada founded?',
+        correct_answer: '1867',
+        answer_options: {
+            'a': '1867',
+            'b': '1798',
+            'c': '1859',
+            'd': '1668'
+        },
+        difficulty: 'hard'
+    },
+    
 ];
 
 
