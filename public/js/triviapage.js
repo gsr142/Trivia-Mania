@@ -50,6 +50,10 @@ async function populateQuestions(questionData, difficulty) {
     console.log(answeredQuestions)
     console.log(questionData);
     console.log(correctAns);
+
+    // const difficultySelect = document.getElementById('difficulty-select');
+    // const difficulty = difficultySelect.value;
+    
     answerKey.forEach((elem) => {
       const answer = document.createElement('li');
       answer.setAttribute('class', 'answer');

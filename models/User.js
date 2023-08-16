@@ -34,7 +34,7 @@ User.init(
         },
         currentscore: {
             type: DataTypes.INTEGER,
-            allwNull: true,
+            allowNull: true,
         }
     },
     {
