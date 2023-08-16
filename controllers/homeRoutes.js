@@ -29,15 +29,29 @@ router.get("/triviapage", async (req, res) => {
 
 router.get("/leaderboard", async (req, res) => {
 
-    const highScoresData = await User.findAll({attributes: ['name', 'highscore']});
+    const highScoresData = await User.findAll({attributes: ['name', 'highscore', 'currentscore']});
     const highScores = highScoresData.map( highScore => highScore.get({plain:true}));
-    // console.log(highScores);
+    
+    const userData = await User.findOne({ where: { id: req.session.user_id}});
+    console.log(userData.dataValues.currentscore);
+    // console.log('HIGHSCORE!: ' + userData.dataValues.highscore);
+    const currentScore = userData.dataValues.currentscore;
+
+    // const currentScore = highScores.map( (user) => {
+    //     if ( user.id === req.sessions.user_id ) {
+    //         return user.currentscore
+    //     }
+    // })
+
+    
 
     const topThree = reverseBubbleSort(highScores).slice(0,3);
 
     res.render('leaderboard', {
         logged_in: req.session.logged_in,
-        topThree: topThree});
+        topThree: topThree,
+        current_score: currentScore,
+    });
 })
 
 module.exports = router;
