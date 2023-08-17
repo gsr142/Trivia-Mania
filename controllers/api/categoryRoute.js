@@ -21,6 +21,7 @@ router.get('/', async (req, res) => {
       .json({ error: 'An error occurred while fetching categories' });
   }
 });
+// getting a category by it's id 
 router.get('/category/:id', async (req, res) => {
   try {
     const categoryId = req.params.id;

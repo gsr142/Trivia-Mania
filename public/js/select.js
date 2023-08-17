@@ -27,27 +27,29 @@ const populateCategories = async () => {
   document.addEventListener('DOMContentLoaded', () => {
     populateCategories();
   
-    document
+    document // adding a click event listener to the 'start trivia' button
       .getElementById('start-trivia-button')
       .addEventListener('click', async () => {
-        console.log('Start Trivia button clicked'); // Added console log
-  
+        console.log('Start Trivia button clicked'); 
+        // get references to category and difficulty selection elements
         const categorySelect = document.getElementById('category-select');
         const difficultySelect = document.getElementById('difficulty-select');
-  
+        // get the selected category and difficulty values
         const selectedCategoryId = categorySelect.value;
         const selectedDifficulty = difficultySelect.value;
-  // below is optional, i tried console logging stuff but it wasn't doing anything for me here
         try {
           console.log('Sending request...');
+          // send a GET request to fetch questions based on the selected category and difficulty 
           const response = await fetch(`/api/questions/${selectedCategoryId}?difficulty=${selectedDifficulty}`, {
             method: 'GET',
           });
-  
+          // checking if the response is successful
           if (response.ok) {
             console.log('Response received:', response);
+          // parse the response data as JSON to get the questions
             const questions = await response.json();
             console.log('Questions:', questions);
+            // Render the fetched questions
             renderQuestions(questions);
           } else {
             console.error('Failed to fetch questions');
@@ -60,10 +62,10 @@ const populateCategories = async () => {
 
 
 
-
+// Define an asynchronous function named getQuestions, which fetches question
 const getQuestions = async (event) => {
     event.preventDefault();
-    
+  // Send a GET request to fetch questions based on the users (category, difficulty)
     const response = await fetch(`api/question/${category}/${difficulty}`, {
         method: 'GET',
         headers: { 'Content-type': 'application/json'}
