@@ -2,6 +2,8 @@
 
 Welcome to Trivia-Mania, your go-to destination for challenging and entertaining trivia questions! Whether you're a trivia enthusiast or just looking for a fun way to test your knowledge, Trivia-Mania has got you covered. With a collection of questions spanning various categories and difficulty levels, you're sure to find something that suits your preferences.
 
+![Trivia.Logo](/assets/TRIVIA%20MANIA%20(4).png)
+
 ## Table of Contents:
 1. [Description](#description)
 2. [Features](#features)
