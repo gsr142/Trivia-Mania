@@ -1,5 +1,6 @@
 const router = require('express').Router()
 
+// get request that directs users to signup to our app
 router.get('/', (req, res) => {
     try {
         res.render("newplayer");
