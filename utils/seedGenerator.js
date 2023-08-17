@@ -43,24 +43,39 @@ async function seedGenerator() {
                 question: response[i].question.text,
                 tags: response[i].tags,
                 difficutly: response[i].difficulty,
+                correctAnswer: response[i].correctAnswer,
+                incorrectAnswers: response[i].incorrectAnswers,
             }
     
             result.push(questionObj);
         }
         
-        console.log(result);
-        return result;
-    } );
+        result.forEach(async (q) => {
+            console.log('fetch sent!')
 
-
-    // const response = await responseData.json();
-
-
-    // //for each element of the response array
-    //     //save the category, question, correct answer, difficutly, and tags to an object
-    //     //merge the objest to the questions seed file
-
-    // return await result;
+            const response = await fetch('/api/question/seed', {
+                method: 'POST',
+                body: JSON.stringify({
+                    category: q.category,
+                    question: q.question,
+                    correctAnswer: q.correctAnswer,
+                    incorrectAnswers: q.incorrectAnswers,
+                    difficulty: q.difficulty,
+                    tags: q.tags
+                    }),
+                header: {'Content-Type': 'application/json'}
+            }) 
+            console.log('response received!')
+            if (!response.ok){
+                console.log('error!');
+            }
+          
+        })
+    } );    
 }
 
-seedGenerator();
+// seedGenerator();
+
+//save result of seedGenerator
+//iterate through result, adding each item to the appropriate table
+

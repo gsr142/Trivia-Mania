@@ -36,6 +36,30 @@ router.get('/:categoryid/:difficulty', async ( req, res) => {
     }
 })
 
+router.post('/seed', async (req, res) => {
+    console.log('POST request received!');
+    console.log(req.body.category);
+    if (!Category.findOne({where: {name: req.body.category}})){
+        Category.create({name: req.body.category});
+    }
+    console.log('Category added!');
+    const catData = await Category.findOne({
+        where: {name: req.body.category}
+    });
+    console.log(catData);
+    // const cat_id = cat_idData.get({plain:true});
+    // console.log(cat_id);
+    Question.create({
+        question_text: req.body.question,
+        difficutly: req.body.difficulty,
+        correct_answer: req.body.correctAnswer,
+        answer_options: req.body.incorrectAnswers.concat(req.body.correctAnswer),
+        // category_id: cat_id,
+    })
+
+    console.log('Question added!');
+})
+
 
 
 
